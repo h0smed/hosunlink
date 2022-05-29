@@ -1,0 +1,78 @@
+{{define "description"}}
+<div class="col-lg-4 feature-element">
+    <div class="feature-icon">
+        <i class="icon-cookie"></i>
+    </div>
+    <h2>Remove cookies</h2>
+    <p>Filter cookies that are used for tracking, to protect your anononimity.</p>
+</div>
+<div class="col-lg-4 feature-element">
+    <div class="feature-icon">
+        <i class="icon-shield"></i>
+    </div>
+    <h2>Remove tracking</h2>
+    <p>Remove known tracking parameters from the URLs behind the short links.</p>
+</div>
+<div class="col-lg-4 feature-element">
+    <div class="feature-icon">
+        <i class="icon-warning"></i>
+    </div>
+    <h2>Check blacklist</h2>
+    <p>Check links against a blacklist to prevent access to a harmful website hidden behind a short link.</p>
+</div>
+<h2 id="moreAboutUnshort"><a href="/about">Learn more about unshort.link</a></h2>
+
+{{end}}
+{{define "action"}}
+            <p class="top-banner-subtitle">Prevent short link services from tracking you.</p>
+<div class="link-form" id="action">
+    <input type="text" class="form-control" id="urlDirect" placeholder="https://tinyurl.com/v43klgn" aria-label="Unshort">
+    <button class="btn btn-primary" type="submit" id="unshortDirectButton">
+        unshorten
+    </button>
+
+</div>
+            <div id="headerLinks">
+            <p id="gt-browser">Get automatic protection via the browser extension</p>
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/unshort-link/"><i class="icon-firefox-black"></i></a>
+        <a href="https://chrome.google.com/webstore/detail/unshortlink-free-link-uns/neigokajpjlcgjddjbkngpkmjgdgmcch"><i class="icon-chrome-black"></i></a>
+    </div>
+
+     <script>
+        let buttonDirectElement = document.getElementById("unshortDirectButton");
+        let urlDirectElement = document.getElementById("urlDirect");
+        let headerLinks = document.getElementById("headerLinks");
+        function handleAction() {
+            if (urlDirectElement.value != "") {
+                window.location.href = "/d/" + urlDirectElement.value;
+                return;
+            }
+            if(urlDirectElement.placeholder != "") {
+                window.location.href = "/d/" + urlDirectElement.placeholder;
+                return;
+            }
+            window.location.href = "/d/https://tinyurl.com/yyy63fz9";
+        }
+
+        var extensionURL =  "https://tinyurl.com/v43klgn";
+        if (navigator.userAgent.indexOf("Firefox") != -1) {
+           extensionURL = "https://tinyurl.com/qlhjpjn"
+        }
+        
+
+        urlDirectElement.placeholder = extensionURL;
+        headerLinks.addEventListener("click", function(){
+            window.location.href = extensionURL;
+        });
+
+        buttonDirectElement.addEventListener("click", handleAction);
+        urlDirectElement.addEventListener("keyup", function(event) {
+            // only on enter key
+            if(event.keyCode === 13) {
+                handleAction();
+            }
+        });
+    </script>
+{{end}}
+{{define "notes"}}
+{{end}}

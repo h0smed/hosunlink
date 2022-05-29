@@ -1,0 +1,16 @@
+{{define "description"}}
+
+{{end}}
+{{define "action"}}
+<div id="blacklisted">
+<h2>Blacklisted</h2>
+<i class="icon-warning-red"></i>
+<div>
+    The short url <a href="{{.ShortUrl}}">{{.ShortUrl}}</a> redirects to a <b>blacklisted host</b>.
+</div>
+<a href="{{.LongUrl}}" class="btn btn-lg btn-primary btn-red" >Continue to blacklisted host<br>"{{.LongUrl}}"</a>
+</div>
+{{end}}
+{{ define "notes" }}
+    <a href="mailto:unshortfeedback@simon-frey.eu?subject=Unshort.link%20Feedback&body={{.FeedbackBody}}" id="linkProblem" class="btn btn-secondary">Feedback?</a>
+{{end}}

@@ -1,0 +1,10 @@
+.input-group-addon,
+.input-group-btn {
+    width: initial !important;
+    white-space: nowrap;
+    vertical-align: middle
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none !important;
+}
